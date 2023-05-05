@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using System.IO;
 
 namespace Xamarin2018.Droid
 {
@@ -16,7 +17,13 @@ namespace Xamarin2018.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            string nombreArchivo = "baseDatos.sqlite";
+            string ruta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+
+            string ruta_db = Path.Combine(ruta, nombreArchivo);
+
+            LoadApplication(new App(ruta_db);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

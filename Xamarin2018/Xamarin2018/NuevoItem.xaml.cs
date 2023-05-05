@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin2018.Clases;
 
 namespace Xamarin2018
 {
@@ -19,7 +20,29 @@ namespace Xamarin2018
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            Tarea nuevaTarea = new Tarea()
+            {
+                Nombre = nombreEntry.Text,
+                Fecha = fechaLimiteDatePicker.Date,
+                Hora = horaLimiteTimePicker.Time,
+                Completada = false
+            };
 
+            using (SQLite.SQLiteConnection conexion = new SQLite.SQLiteConnection(App.RutaBD))
+            {
+                conexion.CreateTable<Tarea>();
+                var resultado = conexion.Insert(nuevaTarea);
+
+                if (resultado > 0)
+                {
+                    DisplayAlert("Exito", "La tarea fue guardada correctamente", "Ok");
+                }
+                else
+                {
+                    DisplayAlert("Eror", "Algo salio mal", "Ok");
+                }
+            }
+                
         }
     }
 }
