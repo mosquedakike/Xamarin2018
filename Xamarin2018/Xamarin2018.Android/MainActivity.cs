@@ -23,7 +23,7 @@ namespace Xamarin2018.Droid
 
             string ruta_db = Path.Combine(ruta, nombreArchivo);
 
-            LoadApplication(new App(ruta_db);
+            LoadApplication(new App(ruta_db));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

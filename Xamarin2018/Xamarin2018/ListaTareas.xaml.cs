@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin2018.Clases;
 
 namespace Xamarin2018
 {
@@ -15,6 +16,18 @@ namespace Xamarin2018
         public ListaTareas()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            using (SQLite.SQLiteConnection conexion = new SQLite.SQLiteConnection(App.RutaBD))
+            {
+                List<Tarea> listaTareas = conexion.Table<Tarea>().ToList();
+
+                ListaTareasView.ItemsSource = listaTareas;
+            }
         }
     }
 }
