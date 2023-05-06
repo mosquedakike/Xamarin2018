@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin2018.ListaTareas">
-    <ListView x:Name="ListaTareasView">
+    <ListView x:Name="ListaTareasListView">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Nombre}" Detail="{Binding Fecha}"/>
+                <TextCell Text="{Binding Nombre}" Detail="{Binding Fecha}">
+                    <TextCell.ContextActions>
+                        <MenuItem Clicked="MenuItem_Clicked" Text="Completar" CommandParameter="{Binding}"/>
+                    </TextCell.ContextActions>
+                </TextCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

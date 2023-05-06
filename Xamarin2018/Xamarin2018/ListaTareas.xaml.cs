@@ -16,6 +16,19 @@ namespace Xamarin2018
         public ListaTareas()
         {
             InitializeComponent();
+
+            var botonAgregar = new ToolbarItem() 
+            { 
+                Text = "Agregar" 
+            };
+
+            botonAgregar.Clicked += botonAgregar_Clicked;
+            ToolbarItems.Add(botonAgregar);
+        }
+
+        private async void botonAgregar_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NuevoItem());
         }
 
         protected override void OnAppearing()
@@ -24,9 +37,25 @@ namespace Xamarin2018
 
             using (SQLite.SQLiteConnection conexion = new SQLite.SQLiteConnection(App.RutaBD))
             {
-                List<Tarea> listaTareas = conexion.Table<Tarea>().ToList();
+                List<Tarea> listaTareas = conexion.Table<Tarea>()
+                                                    .Where(t => t.Completada == false).ToList();
 
-                ListaTareasView.ItemsSource = listaTareas;
+                ListaTareasListView.ItemsSource = listaTareas;
+            }
+        }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            using (SQLite.SQLiteConnection conexion = new SQLite.SQLiteConnection(App.RutaBD))
+            {
+                var tareaCompletar = (sender as MenuItem).CommandParameter as Tarea;
+                tareaCompletar.Completada = true;
+
+                conexion.Update(tareaCompletar);
+
+                List<Tarea> listaTareasFiltradas = conexion.Table<Tarea>()
+                                                    .Where(t => t.Completada == false).ToList();
+                ListaTareasListView.ItemsSource = listaTareasFiltradas;
             }
         }
     }

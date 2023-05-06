@@ -36,6 +36,7 @@ namespace Xamarin2018
                 if (resultado > 0)
                 {
                     DisplayAlert("Exito", "La tarea fue guardada correctamente", "Ok");
+                    Navigation.PushAsync(new ListaTareas());
                 }
                 else
                 {
