@@ -12,7 +12,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>x
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Text="Nueva tarea" Style="{StaticResource TitleLabel}" Grid.ColumnSpan="3"/>
         <Label Grid.Row="1" Text="Nombre de la tarea" Style="{StaticResource SubtitleLabel}"/>
