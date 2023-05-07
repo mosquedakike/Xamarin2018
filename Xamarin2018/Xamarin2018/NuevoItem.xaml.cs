@@ -22,9 +22,9 @@ namespace Xamarin2018
         {
             Tarea nuevaTarea = new Tarea()
             {
-                Nombre = nombreEntry.Text,
-                Fecha = fechaLimiteDatePicker.Date,
-                Hora = horaLimiteTimePicker.Time,
+                Nombre = NombreEntry.Text,
+                Fecha = FechaLimiteDatePicker.Date,
+                Hora = HoraLimiteTimePicker.Time,
                 Completada = false
             };
 

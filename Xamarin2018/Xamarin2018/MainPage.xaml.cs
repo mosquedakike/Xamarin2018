@@ -17,13 +17,13 @@ namespace Xamarin2018
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(usuarioEntry.Text) || string.IsNullOrEmpty(passwordEntry.Text))
+            if (string.IsNullOrEmpty(UsuarioEntry.Text) || string.IsNullOrEmpty(PasswordEntry.Text))
             {
-                resultadoLabel.Text = "Debes escribir usuario y contraseña";
+                ResultadoLabel.Text = "Debes escribir usuario y contraseña";
             }
             else
             {
-                resultadoLabel.Text = "Inicio de sesion exitoso";
+                ResultadoLabel.Text = "Inicio de sesion exitoso";
                 await Navigation.PushAsync(new ListaTareas());
             }
         }

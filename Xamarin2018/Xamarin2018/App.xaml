@@ -3,6 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Xamarin2018.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <Color x:Key="ButtonColor">CornflowerBlue</Color>
+            <Color x:Key="TextColor">Black</Color>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}"/>
+            </Style>
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="25"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="SubtitleLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

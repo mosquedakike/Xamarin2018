@@ -4,10 +4,10 @@
              x:Class="Xamarin2018.MainPage">
 
     <StackLayout VerticalOptions="Center" Margin="20">
-        <Entry x:Name="usuarioEntry" Placeholder="Nombre de usuario"/>
-        <Entry x:Name="passwordEntry" Placeholder="contraseña"/>
-        <Button Text="Iniciar sesion" Clicked="Button_Clicked"/>
-        <Label x:Name="resultadoLabel" HorizontalOptions="Center"/>
+        <Entry x:Name="UsuarioEntry" Placeholder="Nombre de usuario"/>
+        <Entry x:Name="PasswordEntry" Placeholder="contraseña"/>
+        <Button Text="Iniciar sesion" Clicked="Button_Clicked" BackgroundColor="{StaticResource ButtonColor}" 
+                TextColor="{StaticResource TextColor}"/>
+        <Label x:Name="ResultadoLabel" HorizontalOptions="Center"/>
     </StackLayout>
-
 </ContentPage>
